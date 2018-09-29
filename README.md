@@ -65,3 +65,27 @@ $ git merge --abort
 
 stash는 스택 구조 FILO (맨 먼저 생성된 stash가 제일 마지막에 나온다)
 맨 위의 stash도 삭제 않고 꺼내기 바랄 때는 apply를 사용한다
+
+## 과거 히스토리의 특정 커밋에서 브랜치 따기
+
+$ git checkout 커밋번호
+영어로 주의 사항 노출 
+$ git checkout -b 브랜치명 
+
+## git 되돌리기
+
+- 수정 전 파일로 돌아가기 (수정내용 취소) : $ git checkout -- README.md
+- 언스테이징 하기 (add 취소) : $ git reset HEAD "filename"
+- 커밋돌리기 : revert
+  - $ git revert 커밋번호
+  - 취소도 하나의 커밋으로 만들어 준다. 따라서 취소한 내용을 살릴 수 있다.
+- 커밋돌리기 : reset : 
+  - $ git reset 옵션 HEAD~
+  - 옵션
+    - '--soft' : staging 으로 돌아감, 커밋은 날아가고 add까지 된 상태가 됨
+    - '--mixed' : 기본 옵션, modified 상태, add 이전 상태 수정사항 남아있음
+    - '--hard' : 수정되기 이전 상태
+  - HEAD~ : 맨 마지막 커밋이 지정됨
+    - 커밋번호
+    - HEAD~2 : 맨위의 두개의 커밋 돌림
+
