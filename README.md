@@ -42,3 +42,26 @@ $ git add .
 ### conflict
 
 동일한 파일의 동일한 위치에 여러 변경사항을 병합하려는 경우 발생
+
+- 현재 브랜치의 내용 : <<<<<<< HEAD 부터 ======= 까지
+- 땡겨 오는 브랜치의 내용 : ======= 부터 >>>>>>> merge-conflict
+
+### merge 취소
+
+$ git merge --abort
+
+## git stash
+
+- 작업 일시 중지, 작업 중이던 내용이 임시 저장된다.
+- untracking 파일은 적용 되지 않는다. 즉 임시저장 되지 않는다.
+- 목록 보기 : $ git stash list (모든 브랜치의 stash가 나온다)
+- 이름 부여 : $ git stash save "stash명"
+- 꺼내기
+  - $ git stash pop (잘라내기)
+  - $ git stash apply stash@{2} (복사하기)
+- 삭제
+  - 특정 : $ git stash drop stash@{1}
+  - 모두 : $ git stash clear
+
+stash는 스택 구조 FILO (맨 먼저 생성된 stash가 제일 마지막에 나온다)
+맨 위의 stash도 삭제 않고 꺼내기 바랄 때는 apply를 사용한다
